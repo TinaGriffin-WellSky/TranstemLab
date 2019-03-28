@@ -40,6 +40,8 @@ namespace Flux.TranstemLab.StepDefinitions.RecipientSteps
         }
 
         [Then(@"I click LogOutName")]
+
+
         public void ThenIClickLogOutName()
         {
             pages.transtemLabHomePage = pages.transtemLabHomePage.ClickLogOutName();

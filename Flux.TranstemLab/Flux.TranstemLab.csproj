@@ -224,6 +224,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReferenceTable.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\DonorSearch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonorSearch.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\UserMgmt.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -378,6 +383,10 @@
     <None Include="Features\ReferenceTable.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ReferenceTable.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\DonorSearch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DonorSearch.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\UserMgmt.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

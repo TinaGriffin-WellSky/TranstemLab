@@ -19,6 +19,7 @@ namespace Flux.TranstemLab.StepDefinitions
             pages.transtemLabHomePage.VerificationOfHomePage();
         }
 
+        [Given(@"I navigate to the Donor Page")]
         [Then(@"I click on Donors Link")]
         public void ThenIClickOnDonorsLink()
         {

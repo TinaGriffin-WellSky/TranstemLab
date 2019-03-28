@@ -51,11 +51,10 @@ namespace Flux.TranstemLab.StepHelper.Pages
         {
             if (Actions.IsDisplayed(_elementLogOutLink))
             {
-                Console.WriteLine("Transtem Lab Home Page is diaplyed");
+                Console.WriteLine("Transtem Lab Home Page is displayed");
             }
             return CreateInstance<TranstemLabHomePage>();
         }
-
         //Logout
         public TranstemLabHomePage ClickLogOutLink()
         {

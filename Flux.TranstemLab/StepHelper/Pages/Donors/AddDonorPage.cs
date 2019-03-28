@@ -113,7 +113,7 @@ namespace Flux.TranstemLab.StepHelper.Pages.Donors
                 }
 
                 Actions.SelectByRandoxIndex(_elementListOptionsFromDonor);
-                Console.WriteLine(Actions.GetAttributeValue(_elementListOptionsFromDonor, "value") + " is selected for " + dropDownListOptionsFromDonor[j] );
+                Console.WriteLine(Actions.GetAttributeValue(_elementListOptionsFromDonor, "value") + " is selected for " + dropDownListOptionsFromDonor[j]);
 
             }
         }
@@ -208,5 +208,7 @@ namespace Flux.TranstemLab.StepHelper.Pages.Donors
               }
               return CreateInstance<TranstemLabLoginPage>();
           }*/
-    }
+    }       
+           
+    
 }

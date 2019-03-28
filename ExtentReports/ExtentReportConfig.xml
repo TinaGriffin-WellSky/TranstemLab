@@ -18,7 +18,7 @@
     <!-- top, bottom -->
     <testViewChartLocation>bottom</testViewChartLocation>
     <!-- custom javascript -->
-    <scripts>var browserName = 'chrome'; var browserVersion = '69.0.3497.100'; var operatingSystem = 'Microsoft Windows NT 10.0.16299.0'; var ipAddress = '10.30.8.202';
+    <scripts>var browserName = 'chrome'; var browserVersion = '73.0.3683.86'; var operatingSystem = 'Microsoft Windows NT 6.1.7601 Service Pack 1'; var ipAddress = '192.168.254.76';
 var TcPassPercent = 0;
       
 $(document).ready(function () {
