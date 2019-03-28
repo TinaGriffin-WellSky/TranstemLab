@@ -1,0 +1,27 @@
+﻿{
+  // URL
+  "AppUrl": "http://10.155.194.143/GenericHomePage.aspx",
+  
+
+  // Credentials - Admin
+  "Username": "admin",
+  "Password": "Testing!",
+
+  // Browser Type
+  "BrowserType": "Chrome",
+
+  // Wait Time
+  "ImplicitWaitTimeout": "10",
+  "PageLoadTimeout": "60",
+  "ScriptTimeout": "60",
+
+  // Explicit Wait Time
+  "SmallWait": "300",
+  "MediumWait": "1200",
+  "LargeWait": "3000",
+
+  // Log Path
+  "logFolderPath": "C:\\Logger",
+  "logLevel": "Info",
+  "logType": "file"
+}

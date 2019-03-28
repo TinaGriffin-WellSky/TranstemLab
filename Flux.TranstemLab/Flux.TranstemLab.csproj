@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28EA43C4-1004-484D-8495-6E967A1ADB0D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flux.TranstemLab</RootNamespace>
+    <AssemblyName>Flux.TranstemLab</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="appium-dotnet-driver, Version=3.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appium.WebDriver.3.0.0.2\lib\net45\appium-dotnet-driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.1.1.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.1.1\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtentReports, Version=3.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.3.1.3\lib\ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions, Version=5.4.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.4.1\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Flux.Core, Version=3.0.0.467, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flux.Core.3.0.0.467\lib\netstandard2.0\Flux.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Flux.Web, Version=3.0.0.52, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flux.Web.3.0.0.52\lib\netstandard2.0\Flux.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.8.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=3.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.3.0.10\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.4.5.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.3.2.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.13.1\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.13.1\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\BatchProcessing.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BatchProcessing.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ConvertUnitIdToIsbt.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConvertUnitIdToIsbt.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CreateABatchFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateABatchFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\DonorsFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonorsFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\EnvironmentalMonitoring.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnvironmentalMonitoring.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\EquipmentFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EquipmentFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FacilitiesFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacilitiesFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LoginFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PhysiciansFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhysiciansFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ProcessingDetails.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessingDetails.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ProductFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Reagents.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reagents.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Recipient.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Recipient.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ReferenceTable.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReferenceTable.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\UserMgmt.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserMgmt.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\UserSystemFlowFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserSystemFlowFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\AdminSteps\EnvironmentalMonitorMgmtSteps.cs" />
+    <Compile Include="StepDefinitions\AdminSteps\ProcessingDetailsSteps.cs" />
+    <Compile Include="StepDefinitions\AdminSteps\ReferenceTableSteps.cs" />
+    <Compile Include="StepDefinitions\AdminSteps\UserMgmtSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\CreateDonorsSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\CollectionEventSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\DocumentsDonorSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\DonorBirthEventSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\DonorSearchSteps.cs" />
+    <Compile Include="StepDefinitions\DonorsSteps\NotesDonorSteps.cs" />
+    <Compile Include="StepDefinitions\EquipmentSteps\CreateEquipmentSteps.cs" />
+    <Compile Include="StepDefinitions\FacilitiesSteps\FacilityDetails.cs" />
+    <Compile Include="StepDefinitions\FacilitiesSteps\FacilitySteps.cs" />
+    <Compile Include="StepDefinitions\Physcians\PhysiciansDetails.cs" />
+    <Compile Include="StepDefinitions\Physcians\PhysiciansSteps.cs" />
+    <Compile Include="StepDefinitions\ProductHomePage\ConvertUnitIdToIsbtSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\DivideBatchAndCheckParentSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\PrintLabelFeatureSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\RepeatSubcomponentsSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\SampleStorageSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\UnitStorageSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\BatchProcessingSteps\UserSystemFlowSteps.cs" />
+    <Compile Include="StepDefinitions\QualitySteps\EnvironmentalMonitoringSteps.cs" />
+    <Compile Include="StepDefinitions\ReagentsSupplies\CreateAndCheckReagentSteps.cs" />
+    <Compile Include="StepDefinitions\RecipientSteps\RecipientSearchSteps.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\AddUserPage.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\AdminHomePage.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\EnvironmentalMonitoringTaskDetail.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\EnvironmentalMonitorMgmtPage.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\ProcessingDetailsPage.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\ReferenceTablePage.cs" />
+    <Compile Include="StepHelper\Pages\Administrator\UserMgmtPage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\DonorHomePage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\DonorSearchPage.cs" />
+    <Compile Include="StepHelper\Pages\EnvironmentalMonitoring\EnvironmentalMonitoringHomePage.cs" />
+    <Compile Include="StepHelper\Pages\EnvironmentalMonitoring\TaskAssignmentDetailsPage.cs" />
+    <Compile Include="StepHelper\Pages\Equipment\EquipmentCreation.cs" />
+    <Compile Include="StepHelper\Pages\Equipment\EquipmentHomePage.cs" />
+    <Compile Include="StepHelper\Pages\Equipment\EquipmentSearchPage.cs" />
+    <Compile Include="StepHelper\Pages\Facilities\CreateFacilityPage.cs" />
+    <Compile Include="StepHelper\Pages\Physcians\CreatePhysiciansPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\BatchProcessing\AddBatchPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\BatchProcessing\SearchBatchPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\BatchProcessing\BatchHomePage.cs" />
+    <Compile Include="StepHelper\Pages\Product\BatchProcessing\SetBatchPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\BatchProcessing\ProcessingProcedurePage.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\CreateKitWithNewDonorSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\CreateProductWithBypassDonorKitSteps.cs" />
+    <Compile Include="StepDefinitions\ProductSteps\CreateProductWithDonorIDSteps.cs" />
+    <Compile Include="StepDefinitions\RecipientSteps\DocumentsRecipientSteps.cs" />
+    <Compile Include="StepDefinitions\RecipientSteps\NotesRecipientSteps.cs" />
+    <Compile Include="StepDefinitions\RecipientSteps\RecipientSteps.cs" />
+    <Compile Include="StepDefinitions\RecipientSteps\TransplantEventSteps.cs" />
+    <Compile Include="StepDefinitions\TranstemLabHomeSteps.cs" />
+    <Compile Include="StepDefinitions\TranstemLabLoginSteps.cs" />
+    <Compile Include="StepHelper\Base\CommonMethodsPage.cs" />
+    <Compile Include="StepHelper\Base\Pages.cs" />
+    <Compile Include="StepHelper\Base\TranstemLabTestBase.cs" />
+    <Compile Include="StepHelper\Pages\Donors\AddDonorPage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\DocumentDonorPage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\DonorBirthEventPage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\DonorCollectionEventsPage.cs" />
+    <Compile Include="StepHelper\Pages\Donors\NotesDonorPage.cs" />
+    <Compile Include="StepHelper\Pages\Kit\AddKitPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\AddNewProductPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\ProductHomePage.cs" />
+    <Compile Include="StepHelper\Pages\Product\ProductSearchPage.cs" />
+    <Compile Include="StepHelper\Pages\Product\UnitTesting.cs" />
+    <Compile Include="StepHelper\Pages\ReagentsSupplies\AddReagentPage.cs" />
+    <Compile Include="StepHelper\Pages\ReagentsSupplies\ReagentDetailsPage.cs" />
+    <Compile Include="StepHelper\Pages\ReagentsSupplies\SearchReagentPage.cs" />
+    <Compile Include="StepHelper\Pages\Recipient\DocumentsRecipientPage.cs" />
+    <Compile Include="StepHelper\Pages\Recipient\NotesRecipientPage.cs" />
+    <Compile Include="StepHelper\Pages\Recipient\RecipientPage.cs" />
+    <Compile Include="StepHelper\Pages\Recipient\RecipientSearchpage.cs" />
+    <Compile Include="StepHelper\Pages\Recipient\TransplantEventPage.cs" />
+    <Compile Include="StepHelper\Pages\TranstemLabHomePage.cs" />
+    <Compile Include="StepHelper\Pages\TranstemLabLoginPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\Flux.TranstemLab.dll.config" />
+    <None Include="bin\Debug\nunit_random_seed.tmp" />
+    <None Include="Features\BatchProcessing.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BatchProcessing.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ConvertUnitIdToIsbt.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConvertUnitIdToIsbt.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\CreateABatchFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateABatchFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\DonorsFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DonorsFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\EnvironmentalMonitoring.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EnvironmentalMonitoring.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\EquipmentFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EquipmentFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\FacilitiesFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FacilitiesFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\LoginFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoginFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\PhysiciansFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PhysiciansFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ProcessingDetails.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProcessingDetails.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ProductFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProductFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reagents.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reagents.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Recipient.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Recipient.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ReferenceTable.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReferenceTable.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\UserMgmt.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UserMgmt.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\UserSystemFlowFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UserSystemFlowFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="license" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Flux.TranstemLab.csproj.CopyComplete" />
+    <None Include="obj\Debug\Flux.TranstemLab.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Flux.TranstemLab.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="testconfig.local.json" />
+    <None Include="UploadFiles\EquipmentHomepage Additions.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\WebDriver.GeckoDriver.0.20.1\content\geckodriver.exe">
+      <Link>geckodriver.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\appium-dotnet-driver.dll" />
+    <Content Include="bin\Debug\appium-dotnet-driver.xml" />
+    <Content Include="bin\Debug\Castle.Core.dll" />
+    <Content Include="bin\Debug\Castle.Core.xml" />
+    <Content Include="bin\Debug\chromedriver.exe" />
+    <Content Include="bin\Debug\DnsClient.dll" />
+    <Content Include="bin\Debug\DnsClient.xml" />
+    <Content Include="bin\Debug\ExtentReports.dll" />
+    <Content Include="bin\Debug\FluentAssertions.dll" />
+    <Content Include="bin\Debug\FluentAssertions.pdb" />
+    <Content Include="bin\Debug\FluentAssertions.xml" />
+    <Content Include="bin\Debug\Flux.Core.dll" />
+    <Content Include="bin\Debug\Flux.TranstemLab.dll" />
+    <Content Include="bin\Debug\Flux.TranstemLab.pdb" />
+    <Content Include="bin\Debug\Flux.Web.dll" />
+    <Content Include="bin\Debug\geckodriver.exe" />
+    <Content Include="bin\Debug\HtmlAgilityPack.dll" />
+    <Content Include="bin\Debug\HtmlAgilityPack.pdb" />
+    <Content Include="bin\Debug\HtmlAgilityPack.xml" />
+    <Content Include="bin\Debug\IEDriverServer.exe" />
+    <Content Include="bin\Debug\itextsharp.dll" />
+    <Content Include="bin\Debug\itextsharp.xml" />
+    <Content Include="bin\Debug\log4net.dll" />
+    <Content Include="bin\Debug\log4net.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Debug\MongoDB.Bson.dll" />
+    <Content Include="bin\Debug\MongoDB.Bson.xml" />
+    <Content Include="bin\Debug\MongoDB.Driver.Core.dll" />
+    <Content Include="bin\Debug\MongoDB.Driver.Core.xml" />
+    <Content Include="bin\Debug\MongoDB.Driver.dll" />
+    <Content Include="bin\Debug\MongoDB.Driver.xml" />
+    <Content Include="bin\Debug\Mono.Cecil.dll" />
+    <Content Include="bin\Debug\netstandard.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.Schema.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.Schema.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\nunit.engine.api.dll" />
+    <Content Include="bin\Debug\nunit.engine.dll" />
+    <Content Include="bin\Debug\nunit.framework.dll" />
+    <Content Include="bin\Debug\nunit.framework.pdb" />
+    <Content Include="bin\Debug\nunit.framework.xml" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.dll" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.pdb" />
+    <Content Include="bin\Debug\RazorEngine.dll" />
+    <Content Include="bin\Debug\RazorEngine.xml" />
+    <Content Include="bin\Debug\System.AppContext.dll" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.CodeDom.dll" />
+    <Content Include="bin\Debug\System.Collections.Concurrent.dll" />
+    <Content Include="bin\Debug\System.Collections.dll" />
+    <Content Include="bin\Debug\System.Collections.NonGeneric.dll" />
+    <Content Include="bin\Debug\System.Collections.Specialized.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.EventBasedAsync.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.Primitives.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.TypeConverter.dll" />
+    <Content Include="bin\Debug\System.Configuration.ConfigurationManager.dll" />
+    <Content Include="bin\Debug\System.Console.dll" />
+    <Content Include="bin\Debug\System.Data.Common.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Contracts.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Debug.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Process.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TextWriterTraceListener.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tools.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TraceSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tracing.dll" />
+    <Content Include="bin\Debug\System.Drawing.Primitives.dll" />
+    <Content Include="bin\Debug\System.Dynamic.Runtime.dll" />
+    <Content Include="bin\Debug\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Debug\System.Globalization.dll" />
+    <Content Include="bin\Debug\System.Globalization.Extensions.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Debug\System.IO.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Watcher.dll" />
+    <Content Include="bin\Debug\System.IO.IsolatedStorage.dll" />
+    <Content Include="bin\Debug\System.IO.MemoryMappedFiles.dll" />
+    <Content Include="bin\Debug\System.IO.Pipes.dll" />
+    <Content Include="bin\Debug\System.IO.UnmanagedMemoryStream.dll" />
+    <Content Include="bin\Debug\System.Linq.dll" />
+    <Content Include="bin\Debug\System.Linq.Expressions.dll" />
+    <Content Include="bin\Debug\System.Linq.Parallel.dll" />
+    <Content Include="bin\Debug\System.Linq.Queryable.dll" />
+    <Content Include="bin\Debug\System.Net.Http.dll" />
+    <Content Include="bin\Debug\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\Debug\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\Debug\System.Net.NameResolution.dll" />
+    <Content Include="bin\Debug\System.Net.NetworkInformation.dll" />
+    <Content Include="bin\Debug\System.Net.Ping.dll" />
+    <Content Include="bin\Debug\System.Net.Primitives.dll" />
+    <Content Include="bin\Debug\System.Net.Requests.dll" />
+    <Content Include="bin\Debug\System.Net.Security.dll" />
+    <Content Include="bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\System.Net.WebHeaderCollection.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.Client.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.dll" />
+    <Content Include="bin\Debug\System.ObjectModel.dll" />
+    <Content Include="bin\Debug\System.Reflection.dll" />
+    <Content Include="bin\Debug\System.Reflection.Extensions.dll" />
+    <Content Include="bin\Debug\System.Reflection.Primitives.dll" />
+    <Content Include="bin\Debug\System.Resources.Reader.dll" />
+    <Content Include="bin\Debug\System.Resources.ResourceManager.dll" />
+    <Content Include="bin\Debug\System.Resources.Writer.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.VisualC.dll" />
+    <Content Include="bin\Debug\System.Runtime.dll" />
+    <Content Include="bin\Debug\System.Runtime.Extensions.dll" />
+    <Content Include="bin\Debug\System.Runtime.Handles.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Debug\System.Runtime.Numerics.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Formatters.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Json.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Xml.dll" />
+    <Content Include="bin\Debug\System.Security.AccessControl.dll" />
+    <Content Include="bin\Debug\System.Security.Claims.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Csp.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Debug\System.Security.Permissions.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\Debug\System.Security.SecureString.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.Extensions.dll" />
+    <Content Include="bin\Debug\System.Text.RegularExpressions.dll" />
+    <Content Include="bin\Debug\System.Threading.dll" />
+    <Content Include="bin\Debug\System.Threading.Overlapped.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Parallel.dll" />
+    <Content Include="bin\Debug\System.Threading.Thread.dll" />
+    <Content Include="bin\Debug\System.Threading.ThreadPool.dll" />
+    <Content Include="bin\Debug\System.Threading.Timer.dll" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Content Include="bin\Debug\System.ValueTuple.xml" />
+    <Content Include="bin\Debug\System.Web.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.Razor.xml" />
+    <Content Include="bin\Debug\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Debug\System.Xml.XDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlSerializer.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.dll" />
+    <Content Include="bin\Debug\WebDriver.dll" />
+    <Content Include="bin\Debug\WebDriver.Support.dll" />
+    <Content Include="bin\Debug\WebDriver.Support.xml" />
+    <Content Include="bin\Debug\WebDriver.xml" />
+    <Content Include="extent-config.xml" />
+    <Content Include="obj\Debug\Flux.TranstemLab.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Flux.TranstemLab.dll" />
+    <Content Include="obj\Debug\Flux.TranstemLab.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logger\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.3.2\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.40.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.40.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.21.0\build\Selenium.WebDriver.GeckoDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.0.21.0\build\Selenium.WebDriver.GeckoDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.13.0\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.13.0\build\Selenium.WebDriver.IEDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
+  <Import Project="..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.3.2\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.40.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.40.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.21.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.21.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.13.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.13.0\build\Selenium.WebDriver.IEDriver.targets')" />
+</Project>
